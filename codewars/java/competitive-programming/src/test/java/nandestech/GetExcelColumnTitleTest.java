@@ -6,6 +6,6 @@ public class GetExcelColumnTitleTest {
     @Test
     void testCase() {
         // GetExcelColumnTitle.getColumnTitle(432778);
-        GetExcelColumnTitle.getColumnTitle(0);
+        GetExcelColumnTitle.getColumnTitle(28);
     }
 }
