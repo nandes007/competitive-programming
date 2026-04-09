@@ -13,4 +13,5 @@ use App\LoanInstallmentCalculator;
 // echo "You are ready to start coding!\n";
 
 $loanInstallmentCalculator = new LoanInstallmentCalculator();
-$loanInstallmentCalculator->calculateInstallments(1000000, 12, 5);
+$installments = $loanInstallmentCalculator->calculateInstallments(1000000, 12, 5);
+// print_r($installments);

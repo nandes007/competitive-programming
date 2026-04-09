@@ -10,17 +10,23 @@ class LoanInstallmentCalculator
         $totalMonthlyInstallment = $monthlyInstallmentWithoutInterest + $monthlyInterest;
         $monthlyInstallments = [];
 
+        $total = 0;
         for ($i = 1; $i <= $tenor; $i++) {
             $monthlyInstallments[] = [
                 'month' => $i,
                 'installment' => number_format($totalMonthlyInstallment, 2)
             ];
+
+            $total += $totalMonthlyInstallment;
         }
 
-        foreach ($monthlyInstallments as $installment) {
-            echo "Month " . $installment['month'] . ": " . $installment['installment'] . "\n";
-        }
+        echo $total;
 
-        // echo "Monthly Installment without Interest: " . number_format($totalMonthlyInstallment, 2) . "\n";
+        // $total = 0.0;
+        // foreach ($monthlyInstallments as $installment) {
+        //     $total += $installment['installment'];
+        // }
+
+        return $monthlyInstallments;
     }
 }
