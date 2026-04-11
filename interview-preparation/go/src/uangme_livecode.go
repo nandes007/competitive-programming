@@ -39,3 +39,35 @@ func RaceCondition() {
 
 	wg.Wait()
 }
+
+// Concurrent bug
+// func multiply(n int) int {
+//     result := 0
+//     go func() {
+//         if n%2 == 0 {
+//             result = n * 2
+//         } else {
+//             result = n * 3
+//         }
+//     }()
+//     return result
+// }
+
+func multiply(n int) int {
+	result := 0
+	var wg sync.WaitGroup
+
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+
+		if n%2 == 0 {
+			result = n * 2
+		} else {
+			result = n * 3
+		}
+	}()
+
+	wg.Wait()
+	return result
+}
