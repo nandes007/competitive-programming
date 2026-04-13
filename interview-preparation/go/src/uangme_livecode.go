@@ -71,3 +71,15 @@ func multiply(n int) int {
 	wg.Wait()
 	return result
 }
+
+func largestNumber(a, b []int) int {
+	mergedArr := append(a, b...)
+	largestNumber := 0
+	for i := 0; i < len(mergedArr); i++ {
+		if mergedArr[i] > largestNumber {
+			largestNumber = mergedArr[i]
+		}
+	}
+
+	return largestNumber
+}
